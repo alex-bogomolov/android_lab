@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ColorEditorActivity"></activity>
+        <activity android:name=".ColorEditorActivity" />
+        <activity android:name=".CalculatorActivity"></activity>
     </application>
 
 </manifest>

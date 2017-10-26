@@ -18,4 +18,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ColorEditorActivity.class);
         startActivity(intent);
     }
+
+    public void openCalculator(View view) {
+        Intent intent = new Intent(this, CalculatorActivity.class);
+        startActivity(intent);
+    }
 }
