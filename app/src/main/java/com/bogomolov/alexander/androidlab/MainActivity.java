@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Database.prepare();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
@@ -21,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openCalculator(View view) {
         Intent intent = new Intent(this, CalculatorActivity.class);
+        startActivity(intent);
+    }
+
+    public void openNotes(View view) {
+        Intent intent = new Intent(this, NotesActivity.class);
         startActivity(intent);
     }
 }

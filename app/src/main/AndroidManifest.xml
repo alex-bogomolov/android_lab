@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ColorEditorActivity" />
-        <activity android:name=".CalculatorActivity"></activity>
+        <activity android:name=".CalculatorActivity" />
+        <activity android:name=".NotesActivity"></activity>
     </application>
 
 </manifest>
