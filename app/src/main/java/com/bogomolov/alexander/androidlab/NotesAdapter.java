@@ -26,6 +26,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
         holder.title.setText(note.title);
         holder.priority.setText(String.valueOf(note.priority));
         holder.content.setText(note.content);
+        holder.layout.setTag(new int[]{position, note.id});
     }
 
     @Override

@@ -23,4 +23,28 @@ public class Database {
     public static ArrayList<Note> getNotes() {
         return notes;
     }
+
+    public static void addNote(Note note) {
+        notes.add(note);
+    }
+
+    public static void removeNote(int id) {
+        int position = -1;
+
+        for(int i = 0; i < notes.size(); i++) {
+            Note note = notes.get(i);
+            if (note.id == id) {
+                position = i;
+                break;
+            }
+        }
+
+        if (position != -1) {
+            notes.remove(position);
+        }
+    }
+
+    public static int count() {
+        return notes.size();
+    }
 }
