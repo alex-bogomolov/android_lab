@@ -61,6 +61,13 @@
         android:inputType="text" />
 
     <Button
+        android:id="@+id/add_note_image"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:onClick="addImage"
+        android:text="Add image" />
+
+    <Button
         android:id="@+id/add_note_button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"

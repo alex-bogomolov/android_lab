@@ -1,5 +1,6 @@
 package com.bogomolov.alexander.androidlab;
 
+import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,10 @@ import android.widget.RadioGroup;
 public class AddNoteActivity extends AppCompatActivity {
     EditText titleInput, contentInput;
     RadioGroup priorityInput;
+
+    String imagePath;
+
+    private static int RESULT_LOAD_IMAGE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +38,23 @@ public class AddNoteActivity extends AppCompatActivity {
         String content = contentInput.getText().toString();
         RadioButton checkedPriorityRadioButton = (RadioButton) findViewById(priorityInput.getCheckedRadioButtonId());
         int priority = Integer.parseInt((String) checkedPriorityRadioButton.getTag());
-        Note newNote = new Note(title, content, priority, null);
+        Note newNote = new Note(title, content, priority, imagePath);
         Database.addNote(newNote);
         NavUtils.navigateUpFromSameTask(this);
+    }
+
+    public void addImage(View view) {
+        Intent photoPickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, RESULT_LOAD_IMAGE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            this.imagePath = data.getData().toString();
+        }
     }
 }

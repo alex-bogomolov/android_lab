@@ -26,7 +26,7 @@ public class NotesActivity extends AppCompatActivity {
         this.layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(this.layoutManager);
 
-        adapter = new NotesAdapter();
+        adapter = new NotesAdapter(this);
         recyclerView.setAdapter(adapter);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
