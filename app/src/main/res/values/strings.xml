@@ -19,4 +19,16 @@
     <string name="dot">.</string>
     <string name="equals">=</string>
     <string name="clear">X</string>
+    <string name="notes_activity_title">Notes</string>
+    <string name="add_note">Add</string>
+    <string name="filter_by_priority">Filter by priority</string>
+    <string name="filter_by_content">Filter by content</string>
+    <string name="clear_filters">Clear filters</string>
+    <string name="choose_an_option">Choose an option</string>
+    <string name="delete_note">Delete</string>
+    <string name="edit_note">Edit</string>
+    <string name="note_editor_title">Edit Note</string>
+    <string name="note_editor_priority">Priority</string>
+    <string name="note_editor_add_image">Add Image</string>
+    <string name="note_editor_save_note">Save</string>
 </resources>

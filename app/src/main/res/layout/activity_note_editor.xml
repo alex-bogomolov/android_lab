@@ -6,72 +6,78 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/add_note_toolbar"
+        android:id="@+id/note_editor_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:title="Add Note" />
+        app:title="@string/note_editor_title" />
 
     <EditText
-        android:id="@+id/add_note_title"
+        android:id="@+id/note_editor_note_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text|textPersonName" />
 
+    <TextView
+        android:id="@+id/note_editor_priority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/note_editor_priority" />
+
     <RadioGroup
-        android:id="@+id/add_note_priority"
+        android:id="@+id/note_editor_note_priority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <RadioButton
-            android:id="@+id/add_note_priority_1"
+            android:id="@+id/note_editor_priority_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:tag="1"
-            android:text="Priority 1" />
+            android:text="1" />
 
         <RadioButton
-            android:id="@+id/add_note_priority_2"
+            android:id="@+id/note_editor_priority_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:tag="2"
-            android:text="Priority 2" />
+            android:text="2" />
 
         <RadioButton
-            android:id="@+id/add_note_priority_3"
+            android:id="@+id/note_editor_priority_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:tag="3"
-            android:text="Priority 3" />
+            android:text="3" />
 
 
     </RadioGroup>
 
     <EditText
-        android:id="@+id/add_note_content"
+        android:id="@+id/note_editor_note_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text" />
 
     <Button
-        android:id="@+id/add_note_image"
+        android:id="@+id/note_editor_image"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:onClick="addImage"
-        android:text="Add image" />
+        android:text="@string/note_editor_add_image" />
 
     <Button
-        android:id="@+id/add_note_button"
+        android:id="@+id/note_editor_button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Add Note"
-        android:onClick="saveNote"/>
+        android:onClick="saveNote"
+        android:text="@string/note_editor_save_note" />
 
 </LinearLayout>

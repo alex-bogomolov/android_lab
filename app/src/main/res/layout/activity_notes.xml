@@ -14,10 +14,10 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Notes" />
+        app:title="@string/notes_activity_title" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/notesRecyclerView"
+        android:id="@+id/notes_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical">

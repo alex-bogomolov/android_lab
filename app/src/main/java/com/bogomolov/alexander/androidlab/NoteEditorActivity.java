@@ -29,18 +29,18 @@ public class NoteEditorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_editor);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.add_note_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.note_editor_toolbar);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        this.titleInput = (EditText) findViewById(R.id.add_note_title);
-        this.contentInput = (EditText) findViewById(R.id.add_note_content);
-        this.priorityInput = (RadioGroup) findViewById(R.id.add_note_priority);
+        this.titleInput = (EditText) findViewById(R.id.note_editor_note_title);
+        this.contentInput = (EditText) findViewById(R.id.note_editor_note_content);
+        this.priorityInput = (RadioGroup) findViewById(R.id.note_editor_note_priority);
 
-        this.priority1 = (RadioButton) findViewById(R.id.add_note_priority_1);
-        this.priority2 = (RadioButton) findViewById(R.id.add_note_priority_2);
-        this.priority3 = (RadioButton) findViewById(R.id.add_note_priority_3);
+        this.priority1 = (RadioButton) findViewById(R.id.note_editor_priority_1);
+        this.priority2 = (RadioButton) findViewById(R.id.note_editor_priority_2);
+        this.priority3 = (RadioButton) findViewById(R.id.note_editor_priority_3);
 
         Intent intent = getIntent();
 

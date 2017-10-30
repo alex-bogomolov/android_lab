@@ -21,7 +21,7 @@ public class Database {
     }
 
     public static ArrayList<Note> getNotes() {
-        return notes;
+        return new ArrayList<>(notes);
     }
 
     public static void addNote(Note note) {
@@ -58,5 +58,33 @@ public class Database {
         }
 
         return null;
+    }
+
+    public static ArrayList<Note> filterByPriority(int priority) {
+        ArrayList<Note> out = new ArrayList<>();
+
+        for (int i = 0; i < notes.size(); i++) {
+            Note note = notes.get(i);
+
+            if (note.priority == priority) {
+                out.add(note);
+            }
+        }
+
+        return out;
+    }
+
+    public static ArrayList<Note> filterByContent(String content) {
+        ArrayList<Note> out = new ArrayList<>();
+
+        for (int i = 0; i < notes.size(); i++) {
+            Note note = notes.get(i);
+
+            if (note.title.toLowerCase().contains(content.toLowerCase()) || note.content.toLowerCase().contains(content.toLowerCase())) {
+                out.add(note);
+            }
+        }
+
+        return out;
     }
 }

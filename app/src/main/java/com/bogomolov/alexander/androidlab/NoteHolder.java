@@ -1,5 +1,6 @@
 package com.bogomolov.alexander.androidlab;
 
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -35,9 +36,10 @@ public class NoteHolder extends RecyclerView.ViewHolder implements View.OnCreate
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        menu.setHeaderTitle("Choose an option");
-        MenuItem deleteItem = menu.add(0, v.getId(), 0, "Delete");
-        MenuItem editItem = menu.add(1, v.getId(), 1, "Edit");
+        Resources r = v.getResources();
+        menu.setHeaderTitle(r.getString(R.string.choose_an_option));
+        MenuItem deleteItem = menu.add(0, v.getId(), 0, r.getString(R.string.delete_note));
+        MenuItem editItem = menu.add(1, v.getId(), 1, r.getString(R.string.edit_note));
         deleteItem.setActionView(this.layout);
         editItem.setActionView(this.layout);
     }

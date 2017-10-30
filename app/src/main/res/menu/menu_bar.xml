@@ -2,6 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="Add"
-          android:id="@+id/add_note_item"/>
+    <item
+        android:id="@+id/add_note_item"
+        android:title="@string/add_note" />
+
+    <item
+        android:id="@+id/filter_by_priority"
+        android:title="@string/filter_by_priority" />
+
+    <item
+        android:id="@+id/filter_by_content"
+        android:title="@string/filter_by_content" />
+
+    <item
+        android:id="@+id/clear_filters"
+        android:title="@string/clear_filters" />
 </menu>

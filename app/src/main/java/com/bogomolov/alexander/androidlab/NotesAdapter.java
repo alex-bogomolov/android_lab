@@ -22,6 +22,7 @@ import java.util.Date;
  */
 
 public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
+    ArrayList<Note> dataset;
 
     Context context;
 
@@ -33,8 +34,13 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
 
     @Override
     public void onBindViewHolder(NoteHolder holder, int position) {
-        Note note = Database.getNotes().get(position);
+        Note note = dataset.get(position);
         holder.title.setText(note.title);
+
+        holder.star1.setVisibility(View.VISIBLE);
+        holder.star2.setVisibility(View.VISIBLE);
+        holder.star3.setVisibility(View.VISIBLE);
+
 
         switch (note.priority) {
             case 1:
@@ -64,14 +70,29 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
         }
     }
 
-    public NotesAdapter(Context context) {
+    public NotesAdapter(Context context, ArrayList<Note> notes) {
         this.context = context;
+        this.dataset = notes;
     }
 
     @Override
     public int getItemCount() {
-        return Database.getNotes().size();
+        return dataset.size();
     }
 
+    public void removeById(int id) {
+        int position = -1;
 
+        for (int i = 0; i < dataset.size(); i++) {
+            Note note = dataset.get(i);
+            if (note.id == id) {
+                position = i;
+                break;
+            }
+        }
+
+        if (position != -1) {
+            dataset.remove(position);
+        }
+    }
 }

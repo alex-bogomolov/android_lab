@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Android Lab</string>
+    <string name="color_editor">Color Editor</string>
+    <string name="calculator">Calculator</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="slash">/</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="star">*</string>
+    <string name="dot">.</string>
+    <string name="equals">=</string>
+    <string name="clear">X</string>
+    <string name="notes_activity_title">Заметки</string>
+    <string name="add_note">Добавить</string>
+    <string name="filter_by_priority">Сортировать по приоритету</string>
+    <string name="filter_by_content">Сортировать по содержимому</string>
+    <string name="clear_filters">Очистить фильтры</string>
+    <string name="choose_an_option">Выберите опцию</string>
+    <string name="delete_note">Удалить</string>
+    <string name="edit_note">Редактировать</string>
+    <string name="note_editor_title">Отредактируйте заметку</string>
+    <string name="note_editor_priority">Приоритет</string>
+    <string name="note_editor_add_image">Выберите картинку</string>
+    <string name="note_editor_save_note">Сохранить</string>
+</resources>
