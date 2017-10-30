@@ -2,6 +2,7 @@ package com.bogomolov.alexander.androidlab;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.ContextMenu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -36,7 +37,9 @@ public class NoteHolder extends RecyclerView.ViewHolder implements View.OnCreate
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         menu.setHeaderTitle("Choose an option");
         MenuItem deleteItem = menu.add(0, v.getId(), 0, "Delete");
+        MenuItem editItem = menu.add(1, v.getId(), 1, "Edit");
         deleteItem.setActionView(this.layout);
+        editItem.setActionView(this.layout);
     }
 
 

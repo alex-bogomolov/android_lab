@@ -47,7 +47,8 @@ public class NotesActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.add_note_item:
-                Intent intent = new Intent(this, AddNoteActivity.class);
+                Intent intent = new Intent(this, NoteEditorActivity.class);
+                intent.putExtra(NoteEditorActivity.NOTE_ID, -1);
                 startActivity(intent);
             default:
                 return super.onOptionsItemSelected(item);
@@ -56,12 +57,26 @@ public class NotesActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        int[] tag = (int[]) item.getActionView().getTag();
-        int position = tag[0];
-        int id = tag[1];
-        Database.removeNote(id);
-        adapter.notifyItemRemoved(position);
-        adapter.notifyItemRangeChanged(position, Database.count());
+        String action = item.getTitle().toString();
+
+        if (action.equals("Delete")) {
+            int[] tag = (int[]) item.getActionView().getTag();
+            int position = tag[0];
+            int id = tag[1];
+            Database.removeNote(id);
+            adapter.notifyItemRemoved(position);
+            adapter.notifyItemRangeChanged(position, Database.count());
+            return true;
+        } else if (action.equals("Edit")) {
+            int[] tag = (int[]) item.getActionView().getTag();
+            int position = tag[0];
+            int id = tag[1];
+
+            Intent intent = new Intent(this, NoteEditorActivity.class);
+            intent.putExtra(NoteEditorActivity.NOTE_ID, id);
+            startActivity(intent);
+        }
+
         return true;
     }
 }

@@ -47,4 +47,16 @@ public class Database {
     public static int count() {
         return notes.size();
     }
+
+    public static Note getNoteById(int id) {
+        for (int i = 0; i < notes.size(); i++) {
+            Note note = notes.get(i);
+
+            if (note.id == id) {
+                return note;
+            }
+        }
+
+        return null;
+    }
 }
