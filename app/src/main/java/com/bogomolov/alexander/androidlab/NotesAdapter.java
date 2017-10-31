@@ -53,7 +53,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
         holder.content.setText(note.content);
         holder.layout.setTag(new int[]{position, note.id});
 
-        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        String currentDateTimeString = DateFormat.getDateTimeInstance().format(note.createdAt);
         holder.date.setText(currentDateTimeString);
 
 

@@ -27,7 +27,7 @@ public class NotesActivity extends AppCompatActivity {
         this.layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(this.layoutManager);
 
-        adapter = new NotesAdapter(this, Database.getNotes());
+        adapter = new NotesAdapter(this, Database.getDatabase().getNotes());
         recyclerView.setAdapter(adapter);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -61,7 +61,7 @@ public class NotesActivity extends AppCompatActivity {
                 contentDialog.show(getFragmentManager(), "Filter by content");
                 break;
             case R.id.clear_filters:
-                adapter.dataset = Database.getNotes();
+                adapter.dataset = Database.getDatabase().getNotes();
                 adapter.notifyDataSetChanged();
         }
 
@@ -77,7 +77,7 @@ public class NotesActivity extends AppCompatActivity {
             int position = tag[0];
             int id = tag[1];
             adapter.removeById(id);
-            Database.removeNote(id);
+            Database.getDatabase().removeNote(id);
             adapter.notifyDataSetChanged();
             return true;
         } else if (action.equals("Edit")) {
@@ -94,12 +94,12 @@ public class NotesActivity extends AppCompatActivity {
     }
 
     public void filterByPriority(int priority) {
-        adapter.dataset = Database.filterByPriority(priority);
+        adapter.dataset = Database.getDatabase().filterByPriority(priority);
         adapter.notifyDataSetChanged();
     }
 
     public void filterByContent(String content) {
-        adapter.dataset = Database.filterByContent(content);
+        adapter.dataset = Database.getDatabase().filterByContent(content);
         adapter.notifyDataSetChanged();
     }
 }

@@ -14,16 +14,12 @@ public class Note {
     public String imagePath;
     public int id;
 
-    private static int nextId = 1;
-
-    public Note(String title, String content, int priority, String imagePath) {
-        id = nextId;
+    public Note(int id, String title, String content, int priority, String imagePath, Date date) {
+        this.id = id;
         this.title = title;
         this.content = content;
         this.priority = priority;
         this.imagePath = imagePath;
-        this.createdAt = new Date();
-
-        nextId++;
+        this.createdAt = date;
     }
 }

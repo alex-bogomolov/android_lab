@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.util.Date;
+
 public class NoteEditorActivity extends AppCompatActivity {
     EditText titleInput, contentInput;
     RadioGroup priorityInput;
@@ -47,7 +49,7 @@ public class NoteEditorActivity extends AppCompatActivity {
         noteId = intent.getIntExtra(NOTE_ID, -1);
 
         if (noteId != -1) {
-            note = Database.getNoteById(noteId);
+            note = Database.getDatabase().getNoteById(noteId);
 
             titleInput.setText(note.title);
             contentInput.setText(note.content);
@@ -74,8 +76,8 @@ public class NoteEditorActivity extends AppCompatActivity {
             String content = contentInput.getText().toString();
             RadioButton checkedPriorityRadioButton = (RadioButton) findViewById(priorityInput.getCheckedRadioButtonId());
             int priority = Integer.parseInt((String) checkedPriorityRadioButton.getTag());
-            Note newNote = new Note(title, content, priority, imagePath);
-            Database.addNote(newNote);
+            Note newNote = new Note(0, title, content, priority, imagePath, new Date());
+            Database.getDatabase().addNote(newNote);
             NavUtils.navigateUpFromSameTask(this);
         } else {
             note.title = titleInput.getText().toString();
@@ -83,6 +85,7 @@ public class NoteEditorActivity extends AppCompatActivity {
             RadioButton checkedPriorityRadioButton = (RadioButton) findViewById(priorityInput.getCheckedRadioButtonId());
             note.priority = Integer.parseInt((String) checkedPriorityRadioButton.getTag());
             note.imagePath = imagePath;
+            Database.getDatabase().updateNote(note);
             NavUtils.navigateUpFromSameTask(this);
         }
     }
