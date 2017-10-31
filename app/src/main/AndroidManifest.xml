@@ -3,6 +3,9 @@
     package="com.bogomolov.alexander.androidlab">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <permission android:name="com.bogomolov.alexander.androidlab.READ_DATABASE" android:protectionLevel="normal" />
+    <permission android:name="com.bogomolov.alexander.androidlab.WRITE_DATABASE" android:protectionLevel="normal" />
+
 
     <application
         android:allowBackup="true"
@@ -24,6 +27,12 @@
         <activity android:name=".NotesActivity" />
         <activity android:name=".NoteEditorActivity"
                   android:parentActivityName=".NotesActivity"></activity>
+        <provider
+            android:authorities="com.bogomolov.alexander.androidlab.notes"
+            android:name=".NotesProvider"
+            android:readPermission="com.bogomolov.alexander.androidlab.READ_DATABASE"
+            android:writePermission="com.bogomolov.alexander.androidlab.WRITE_DATABASE"
+            android:exported="true"/>
     </application>
 
 </manifest>
