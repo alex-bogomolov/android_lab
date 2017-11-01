@@ -56,6 +56,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
         String currentDateTimeString = DateFormat.getDateTimeInstance().format(note.createdAt);
         holder.date.setText(currentDateTimeString);
 
+        holder.imageView.setImageResource(android.R.drawable.ic_menu_gallery);
 
         if (note.imagePath != null) {
             Uri uri = Uri.parse(note.imagePath);
