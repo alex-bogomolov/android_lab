@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.text.DateFormat;
@@ -58,16 +59,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NoteHolder> {
 
         holder.imageView.setImageResource(android.R.drawable.ic_menu_gallery);
 
-        if (note.imagePath != null) {
-            Uri uri = Uri.parse(note.imagePath);
-            try {
-
-                final InputStream imageStream = context.getContentResolver().openInputStream(uri);
-                final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-                holder.imageView.setImageBitmap(selectedImage);
-            } catch (FileNotFoundException e) {
-
-            }
+        if (note.image != null) {
+            ByteArrayInputStream bis = new ByteArrayInputStream(note.image);
+            Bitmap selectedImage = BitmapFactory.decodeStream(bis);
+            holder.imageView.setImageBitmap(selectedImage);
         }
     }
 

@@ -65,8 +65,6 @@ public class NoteEditorActivity extends AppCompatActivity {
                     this.priority3.setChecked(true);
                     break;
             }
-
-            this.imagePath = note.imagePath;
         }
     }
 
@@ -76,7 +74,12 @@ public class NoteEditorActivity extends AppCompatActivity {
             String content = contentInput.getText().toString();
             RadioButton checkedPriorityRadioButton = (RadioButton) findViewById(priorityInput.getCheckedRadioButtonId());
             int priority = Integer.parseInt((String) checkedPriorityRadioButton.getTag());
-            Note newNote = new Note(0, title, content, priority, imagePath, new Date());
+            Note newNote = new Note(0, title, content, priority, null, new Date());
+
+            if (this.imagePath != null) {
+                newNote.setImage(this.imagePath, getApplicationContext());
+            }
+
             Database.getDatabase().addNote(newNote);
             NavUtils.navigateUpFromSameTask(this);
         } else {
@@ -84,7 +87,11 @@ public class NoteEditorActivity extends AppCompatActivity {
             note.content = contentInput.getText().toString();
             RadioButton checkedPriorityRadioButton = (RadioButton) findViewById(priorityInput.getCheckedRadioButtonId());
             note.priority = Integer.parseInt((String) checkedPriorityRadioButton.getTag());
-            note.imagePath = imagePath;
+
+            if (this.imagePath != null) {
+                note.setImage(this.imagePath, getApplicationContext());
+            }
+
             Database.getDatabase().updateNote(note);
             NavUtils.navigateUpFromSameTask(this);
         }
