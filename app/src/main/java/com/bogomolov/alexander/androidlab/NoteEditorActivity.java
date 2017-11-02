@@ -65,6 +65,8 @@ public class NoteEditorActivity extends AppCompatActivity {
                     this.priority3.setChecked(true);
                     break;
             }
+        } else {
+            this.priority2.setChecked(true);
         }
     }
 
